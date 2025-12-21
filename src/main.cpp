@@ -20,35 +20,30 @@ out vec4 FragColor;
 void main()
 {
     FragColor = vec4(0.0, 1.0, 0.0, 1.0);
-
 }
 )";
 
 int main()
 {
-    // --- GLFW ---
+    // ================= INIT GLFW =================
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow* window = glfwCreateWindow(800, 600, "Triangle Matrix", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(800, 600, "Triangle", nullptr, nullptr);
     glfwMakeContextCurrent(window);
 
-    // --- GLAD ---
+    // ================= INIT GLAD =================
     gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
     glViewport(0, 0, 800, 600);
 
     // ================= TRIANGLE =================
     float vertices[] = {
-    // premier triangle
-    -0.3f, -0.3f, 0.0f,
-     0.3f, -0.3f, 0.0f,
-     0.3f,  0.3f, 0.0f,
-
-  
-};
-
+        -0.3f, -0.3f, 0.0f,
+         0.3f, -0.3f, 0.0f,
+         0.0f,  0.3f, 0.0f
+    };
 
     unsigned int VAO, VBO;
     glGenVertexArrays(1, &VAO);
@@ -61,13 +56,13 @@ int main()
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
 
-    // ================= SHADERS =================
+    // ================= SHADER PROGRAM =================
     unsigned int vs = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vs, 1, &vertexShaderSource, NULL);
+    glShaderSource(vs, 1, &vertexShaderSource, nullptr);
     glCompileShader(vs);
 
     unsigned int fs = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fs, 1, &fragmentShaderSource, NULL);
+    glShaderSource(fs, 1, &fragmentShaderSource, nullptr);
     glCompileShader(fs);
 
     unsigned int program = glCreateProgram();
@@ -78,8 +73,8 @@ int main()
     glDeleteShader(vs);
     glDeleteShader(fs);
 
-    // ================= MATRICE SCALE =================
-    float scale = 2.0f; // 🔥 augmente pour remplir l’écran
+    // ================= TRANSFORM =================
+    float scale = 1.0f;
 
     float transform[16] = {
         scale, 0.0f,  0.0f, 0.0f,
@@ -93,7 +88,7 @@ int main()
     // ================= LOOP =================
     while (!glfwWindowShouldClose(window))
     {
-        glClearColor(0.18f, 0.17f, 0.19f, 1.0f);
+        glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         glUseProgram(program);
