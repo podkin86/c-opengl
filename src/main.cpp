@@ -31,12 +31,16 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 }
 
 int main()
-{
+{   
+
+
     // ===== GLFW INIT =====
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+    
 
     GLFWwindow* window = glfwCreateWindow(800, 600, "I love the feet of darkvox", NULL, NULL);
     if (window == NULL)
@@ -63,13 +67,18 @@ int main()
     {
         glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
+        void processInput(GLFWwindow *window);
+        
+        if(glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS){
+        glfwSetWindowShouldClose(window, true);
+        }
 
         // Ici tu dessineras tes triangles / rectangles plus tard
 
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
-
+    
     glfwTerminate();
     return 0;
 }
