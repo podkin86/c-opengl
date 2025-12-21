@@ -72,7 +72,7 @@ int main()
         if(glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS){
         glfwSetWindowShouldClose(window, true);
         }
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClearColor(0.4f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         // Ici tu dessineras tes triangles / rectangles plus tard
 
