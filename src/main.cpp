@@ -37,7 +37,7 @@ int main()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow* window = glfwCreateWindow(800, 600, "OpenGL Triangle", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(800, 600, "i love the feet of darkvox", NULL, NULL);
     if (!window)
     {
         std::cout << "Failed to create GLFW window\n";
@@ -66,12 +66,13 @@ int main()
     // Triangle 2
      0.2f, -0.5f, 0.0f,
      0.8f, -0.5f, 0.0f,
-     0.5f,  0.5f, 0.0f
+     0.5f,  0.5f, 0.0f,
 
     // Triangle 3
-     -0.2f, 0.5f, 0.0f,
-     -0.8f, +0.5f, 0.0f,
-     -0.5f,  -0.5f, 0.0f
+    -0.8f,  0.5f, 0.0f,
+    -0.2f,  0.5f, 0.0f,
+    -0.5f, -0.5f, 0.0f,
+
 };
 
 
