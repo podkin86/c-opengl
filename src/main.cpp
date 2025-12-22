@@ -67,6 +67,11 @@ int main()
      0.2f, -0.5f, 0.0f,
      0.8f, -0.5f, 0.0f,
      0.5f,  0.5f, 0.0f
+
+    // Triangle 3
+     -0.2f, 0.5f, 0.0f,
+     -0.8f, +0.5f, 0.0f,
+     -0.5f,  -0.5f, 0.0f
 };
 
 
@@ -123,7 +128,7 @@ int main()
         glUniformMatrix4fv(loc, 1, GL_FALSE, transform);
 
         glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 6);
+        glDrawArrays(GL_TRIANGLES, 0, 9);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
