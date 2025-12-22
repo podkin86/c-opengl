@@ -58,10 +58,17 @@ int main()
 
     // ===== VERTICES =====
     float vertices[] = {
-        -0.5f, -0.5f, 0.0f,
-         0.5f, -0.5f, 0.0f,
-         0.0f,  0.5f, 0.0f
-    };
+    // Triangle 1
+    -0.8f, -0.5f, 0.0f,
+    -0.2f, -0.5f, 0.0f,
+    -0.5f,  0.5f, 0.0f,
+
+    // Triangle 2
+     0.2f, -0.5f, 0.0f,
+     0.8f, -0.5f, 0.0f,
+     0.5f,  0.5f, 0.0f
+};
+
 
     // ===== VAO / VBO =====
     unsigned int VAO, VBO;
@@ -116,7 +123,7 @@ int main()
         glUniformMatrix4fv(loc, 1, GL_FALSE, transform);
 
         glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        glDrawArrays(GL_TRIANGLES, 0, 6);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
