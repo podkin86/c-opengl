@@ -64,15 +64,17 @@ int main()
     -0.5f,  0.5f, 0.0f,
 
     // Triangle 2
-     0.2f, -0.5f, 0.0f,
-     0.8f, -0.5f, 0.0f,
-     0.5f,  0.5f, 0.0f,
+    0.2f, -0.5f, 0.0f, //bas gauche
+    0.8f, -0.5f, 0.0f, //bas droite
+    0.2f,  0.5f, 0.0f, //haut
+    
 
     // Triangle 3
-    -0.8f,  0.5f, 0.0f,
-    -0.2f,  0.5f, 0.0f,
-    -0.5f, -0.5f, 0.0f,
+    0.2f, 0.5f, 0.0f, //haut gauche
+    0.8f, 0.5f, 0.0f, //haut droite
+    0.8f, -0.5f, 0.0f, //bas
 
+    
 };
 
 
