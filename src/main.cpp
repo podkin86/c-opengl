@@ -37,7 +37,7 @@ int main()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow* window = glfwCreateWindow(800, 600, "i love the feet of darkvox", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(800, 600, "i love the feet of darkvox le retour", NULL, NULL);
     if (!window)
     {
         std::cout << "Failed to create GLFW window\n";
