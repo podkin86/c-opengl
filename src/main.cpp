@@ -1,5 +1,6 @@
 #include "libs.h"
 #include <iostream>
+#include <cmath>
 
 // ================= SHADERS =================
 const char* vertexShaderSource = R"(
@@ -17,12 +18,15 @@ void main()
 const char* fragmentShaderSource = R"(
 #version 330 core
 out vec4 FragColor;
+  
+uniform vec4 ourColor; // nous affecterons cette variable dans le code OpenGL.
 
 void main()
 {
-    FragColor = vec4(0.0, 1.0, 0.0, 1.0);
+    FragColor = ourColor;
 }
 )";
+
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
@@ -116,6 +120,8 @@ int main()
         0,0,0,1
     };
 
+    int transformLoc = glGetUniformLocation(shaderProgram, "transform");
+    int colorLoc     = glGetUniformLocation(shaderProgram, "ourColor");
     // ===== MAIN LOOP =====
     while (!glfwWindowShouldClose(window))
     {
@@ -130,8 +136,13 @@ int main()
         int loc = glGetUniformLocation(shaderProgram, "transform");
         glUniformMatrix4fv(loc, 1, GL_FALSE, transform);
 
+        float timeValue  = glfwGetTime();
+        float greenValue = (sin(timeValue) / 2.0f) + 0.5f;
+        glUniform4f(colorLoc, 0.0f, greenValue, 0.0f, 1.0f);
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, 9);
+
+        
 
         glfwSwapBuffers(window);
         glfwPollEvents();
